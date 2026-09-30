@@ -1,0 +1,1678 @@
+/* =========================================================
+   LOANGUARD AI
+   Loan Approval Prediction
+   Main Stylesheet
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: #f8fafc;
+
+    background:
+        #07111f;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(59, 130, 246, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(139, 92, 246, 0.10),
+            transparent 35%
+        ),
+        #07111f;
+}
+
+
+.orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.45;
+
+    pointer-events: none;
+
+    animation:
+        orbFloat 12s ease-in-out infinite;
+}
+
+
+.orb-1 {
+    width: 320px;
+    height: 320px;
+
+    top: -100px;
+    left: -100px;
+
+    background:
+        rgba(37, 99, 235, 0.25);
+}
+
+
+.orb-2 {
+    width: 380px;
+    height: 380px;
+
+    right: -140px;
+    top: 30%;
+
+    background:
+        rgba(124, 58, 237, 0.20);
+
+    animation-delay: -4s;
+}
+
+
+.orb-3 {
+    width: 300px;
+    height: 300px;
+
+    bottom: -120px;
+    left: 35%;
+
+    background:
+        rgba(14, 165, 233, 0.16);
+
+    animation-delay: -7s;
+}
+
+
+@keyframes orbFloat {
+
+    0%,
+    100% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate3d(25px, -20px, 0)
+            scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container {
+    width: min(1180px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding:
+        35px 0
+        50px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 28px;
+}
+
+
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: #ffffff;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 10px 30px rgba(37, 99, 235, 0.25);
+}
+
+
+.brand h1 {
+    font-size: 22px;
+
+    font-weight: 750;
+
+    letter-spacing: -0.5px;
+}
+
+
+.brand h1 span {
+    color: #60a5fa;
+}
+
+
+.brand p {
+    margin-top: 3px;
+
+    color:
+        rgba(203, 213, 225, 0.58);
+
+    font-size: 12px;
+}
+
+
+.status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        8px 13px;
+
+    border:
+        1px solid rgba(74, 222, 128, 0.14);
+
+    border-radius: 999px;
+
+    background:
+        rgba(34, 197, 94, 0.055);
+
+    color:
+        rgba(220, 252, 231, 0.78);
+
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #4ade80;
+
+    box-shadow:
+        0 0 12px rgba(74, 222, 128, 0.7);
+
+    animation:
+        statusPulse 2s ease-in-out infinite;
+}
+
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        opacity: 0.65;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+
+/* =========================================================
+   MAIN LOAN CARD
+========================================================= */
+
+.loan-card {
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.075);
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 31, 50, 0.88),
+            rgba(7, 19, 32, 0.92)
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(22px);
+}
+
+
+/* =========================================================
+   FORM SECTION
+========================================================= */
+
+.form-section {
+    padding: 50px;
+}
+
+
+.section-heading {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 42px;
+}
+
+
+.eyebrow {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: #60a5fa;
+
+    font-size: 11px;
+
+    font-weight: 750;
+
+    letter-spacing: 1.6px;
+}
+
+
+.section-heading h2 {
+    font-size: 30px;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.8px;
+
+    color: #f8fafc;
+}
+
+
+.section-heading p {
+    max-width: 620px;
+
+    margin-top: 10px;
+
+    color:
+        rgba(203, 213, 225, 0.62);
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+.step-number {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid rgba(96, 165, 250, 0.16);
+
+    border-radius: 15px;
+
+    background:
+        rgba(59, 130, 246, 0.07);
+
+    color:
+        rgba(147, 197, 253, 0.72);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   FORM GROUPS
+========================================================= */
+
+.form-group {
+    margin-bottom: 38px;
+}
+
+
+.form-group:last-of-type {
+    margin-bottom: 0;
+}
+
+
+.form-group h3 {
+    margin-bottom: 17px;
+
+    color:
+        rgba(241, 245, 249, 0.88);
+
+    font-size: 14px;
+
+    font-weight: 650;
+
+    letter-spacing: 0.1px;
+}
+
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+.input-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.input-group.full-width {
+    grid-column:
+        1 / -1;
+}
+
+
+.input-group label {
+    color:
+        rgba(203, 213, 225, 0.72);
+
+    font-size: 12px;
+
+    font-weight: 550;
+}
+
+
+/* =========================================================
+   INPUTS / SELECTS
+========================================================= */
+
+.input-group input,
+.input-group select {
+    width: 100%;
+
+    height: 48px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.085);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: #f8fafc;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.22s ease,
+        background 0.22s ease,
+        box-shadow 0.22s ease,
+        transform 0.22s ease;
+}
+
+
+.input-group input::placeholder {
+    color:
+        rgba(148, 163, 184, 0.42);
+}
+
+
+.input-group input:hover,
+.input-group select:hover {
+    border-color:
+        rgba(147, 197, 253, 0.20);
+
+    background:
+        rgba(255, 255, 255, 0.045);
+}
+
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color:
+        rgba(96, 165, 250, 0.55);
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.09);
+}
+
+
+.input-group select {
+    cursor: pointer;
+
+    appearance: auto;
+}
+
+
+.input-group select option {
+    background: #0b1a2b;
+
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   BUTTON GROUP
+========================================================= */
+
+.button-group {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 40px;
+}
+
+
+/* =========================================================
+   PREDICT BUTTON
+========================================================= */
+
+.predict-btn {
+    min-height: 52px;
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding:
+        0 22px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 12px 30px rgba(37, 99, 235, 0.22);
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        opacity 0.22s ease;
+}
+
+
+.predict-btn:hover:not(:disabled) {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 17px 36px rgba(37, 99, 235, 0.30);
+}
+
+
+.predict-btn:active:not(:disabled) {
+    transform:
+        translateY(0);
+}
+
+
+.predict-btn:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.72;
+}
+
+
+.arrow {
+    font-size: 18px;
+
+    line-height: 1;
+}
+
+
+.btn-loader {
+    display: none;
+
+    width: 17px;
+    height: 17px;
+
+    border:
+        2px solid rgba(255, 255, 255, 0.30);
+
+    border-top-color: #ffffff;
+
+    border-radius: 50%;
+
+    animation:
+        spin 0.7s linear infinite;
+}
+
+
+@keyframes spin {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   RESET BUTTON
+========================================================= */
+
+.reset-btn {
+    min-height: 52px;
+
+    padding:
+        0 20px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color:
+        rgba(226, 232, 240, 0.76);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.22s ease,
+        border-color 0.22s ease,
+        transform 0.22s ease;
+}
+
+
+.reset-btn:hover {
+    transform:
+        translateY(-1px);
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    border-color:
+        rgba(255, 255, 255, 0.14);
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   RESULT SECTION
+========================================================= */
+
+.result-section {
+    display: block;
+
+    padding: 50px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(15, 31, 50, 0.78),
+            rgba(8, 20, 34, 0.92)
+        );
+
+    animation:
+        resultAppear 0.5s ease;
+}
+
+
+.result-section.hidden {
+    display: none;
+}
+
+
+.result-content {
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   RESULT ICON
+========================================================= */
+
+.result-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin:
+        0 auto 17px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(148, 163, 184, 0.09);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    color:
+        rgba(226, 232, 240, 0.78);
+
+    font-size: 32px;
+
+    font-weight: 500;
+
+    animation:
+        iconAppear 0.5s ease;
+}
+
+
+@keyframes iconAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+.result-section.approved .result-icon {
+    background:
+        rgba(34, 197, 94, 0.10);
+
+    border-color:
+        rgba(74, 222, 128, 0.20);
+
+    color:
+        #4ade80;
+
+    box-shadow:
+        0 10px 35px rgba(34, 197, 94, 0.10);
+}
+
+
+.result-section.rejected .result-icon {
+    background:
+        rgba(248, 113, 113, 0.10);
+
+    border-color:
+        rgba(248, 113, 113, 0.20);
+
+    color:
+        #f87171;
+
+    box-shadow:
+        0 10px 35px rgba(248, 113, 113, 0.10);
+}
+
+
+/* =========================================================
+   RESULT TEXT
+========================================================= */
+
+.result-label {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color:
+        rgba(148, 163, 184, 0.70);
+
+    font-size: 10px;
+
+    font-weight: 750;
+
+    letter-spacing: 1.7px;
+}
+
+
+.result-section h2 {
+    font-size: 30px;
+
+    letter-spacing: -0.7px;
+
+    color: #f8fafc;
+}
+
+
+.result-section.approved h2 {
+    color: #86efac;
+}
+
+
+.result-section.rejected h2 {
+    color: #fca5a5;
+}
+
+
+.result-message,
+#resultMessage {
+    max-width: 610px;
+
+    margin:
+        10px auto 0;
+
+    color:
+        rgba(203, 213, 225, 0.62);
+
+    font-size: 13px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   PROBABILITY BOX
+========================================================= */
+
+.probability-box {
+    margin-top: 30px;
+
+    padding: 20px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.065);
+
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    text-align: left;
+}
+
+
+.probability-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 13px;
+}
+
+
+.probability-header span {
+    color:
+        rgba(203, 213, 225, 0.65);
+
+    font-size: 12px;
+}
+
+
+.probability-header strong {
+    color: #f8fafc;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+.progress-bar {
+    width: 100%;
+
+    height: 8px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+}
+
+
+.progress-fill {
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #60a5fa,
+            #8b5cf6
+        );
+
+    transition:
+        width 0.9s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
+
+
+.result-section.approved .progress-fill {
+    background:
+        linear-gradient(
+            90deg,
+            #16a34a,
+            #4ade80
+        );
+}
+
+
+.result-section.rejected .progress-fill {
+    background:
+        linear-gradient(
+            90deg,
+            #dc2626,
+            #f87171
+        );
+}
+
+
+/* =========================================================
+   AI EXPLANATION
+========================================================= */
+
+.explanation-box {
+    margin-top: 30px;
+
+    padding: 26px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.035),
+        0 12px 35px rgba(0, 0, 0, 0.15);
+
+    text-align: left;
+
+    animation:
+        explanationAppear 0.55s ease;
+}
+
+
+/* =========================================================
+   EXPLANATION HEADING
+========================================================= */
+
+.explanation-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+
+.explanation-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(96, 165, 250, 0.18),
+            rgba(167, 139, 250, 0.14)
+        );
+
+    border:
+        1px solid rgba(147, 197, 253, 0.16);
+
+    color:
+        #93c5fd;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+
+.explanation-heading h3 {
+    margin: 0;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #f8fafc;
+
+    letter-spacing: -0.2px;
+}
+
+
+.explanation-heading p {
+    margin: 4px 0 0;
+
+    font-size: 13px;
+
+    color:
+        rgba(203, 213, 225, 0.62);
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   EXPLANATION LIST
+========================================================= */
+
+.explanation-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   EXPLANATION ITEM
+========================================================= */
+
+.explanation-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    min-height: 64px;
+
+    padding: 12px 15px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.055);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    opacity: 0;
+
+    animation:
+        explanationItemAppear 0.45s ease forwards;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.explanation-item:hover {
+    transform:
+        translateX(4px);
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border-color:
+        rgba(255, 255, 255, 0.10);
+}
+
+
+/* =========================================================
+   FACTOR ICON
+========================================================= */
+
+.factor-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    font-size: 19px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   POSITIVE FACTOR
+========================================================= */
+
+.explanation-item.positive .factor-icon {
+    background:
+        rgba(34, 197, 94, 0.12);
+
+    color:
+        #4ade80;
+
+    border:
+        1px solid rgba(74, 222, 128, 0.18);
+}
+
+
+.explanation-item.positive {
+    border-left:
+        2px solid rgba(74, 222, 128, 0.65);
+}
+
+
+/* =========================================================
+   NEGATIVE FACTOR
+========================================================= */
+
+.explanation-item.negative .factor-icon {
+    background:
+        rgba(248, 113, 113, 0.12);
+
+    color:
+        #f87171;
+
+    border:
+        1px solid rgba(248, 113, 113, 0.18);
+}
+
+
+.explanation-item.negative {
+    border-left:
+        2px solid rgba(248, 113, 113, 0.65);
+}
+
+
+/* =========================================================
+   FACTOR CONTENT
+========================================================= */
+
+.factor-content {
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.factor-name {
+    color: #f1f5f9;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    margin-bottom: 3px;
+}
+
+
+.factor-impact {
+    color:
+        rgba(203, 213, 225, 0.58);
+
+    font-size: 12px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   EXPLANATION LOADING
+========================================================= */
+
+.explanation-loading {
+    padding: 18px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.02);
+
+    border:
+        1px dashed rgba(255, 255, 255, 0.09);
+
+    color:
+        rgba(203, 213, 225, 0.58);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   EXPLANATION ANIMATIONS
+========================================================= */
+
+@keyframes explanationAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes explanationItemAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   MODEL INFORMATION
+========================================================= */
+
+.model-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+
+.model-info > div {
+    padding:
+        16px 18px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.055);
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.022);
+
+    text-align: left;
+}
+
+
+.model-info span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color:
+        rgba(148, 163, 184, 0.58);
+
+    font-size: 9px;
+
+    font-weight: 750;
+
+    letter-spacing: 1.3px;
+}
+
+
+.model-info strong {
+    color:
+        rgba(241, 245, 249, 0.88);
+
+    font-size: 13px;
+
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 22px;
+
+    padding:
+        0 4px;
+
+    color:
+        rgba(148, 163, 184, 0.42);
+
+    font-size: 11px;
+}
+
+
+footer p:last-child {
+    text-align: right;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .container {
+        width:
+            min(
+                100% - 28px,
+                760px
+            );
+
+        padding-top: 25px;
+    }
+
+
+    .form-section,
+    .result-section {
+        padding: 36px;
+    }
+
+
+    .section-heading h2 {
+        font-size: 26px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width:
+            calc(100% - 20px);
+
+        padding:
+            18px 0 30px;
+    }
+
+
+    .header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        margin-bottom: 20px;
+    }
+
+
+    .status {
+        align-self: flex-start;
+    }
+
+
+    .loan-card {
+        border-radius: 20px;
+    }
+
+
+    .form-section,
+    .result-section {
+        padding: 25px 18px;
+    }
+
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+
+    .section-heading p {
+        font-size: 12px;
+    }
+
+
+    .step-number {
+        width: 44px;
+        height: 44px;
+
+        border-radius: 12px;
+    }
+
+
+    .form-grid {
+        grid-template-columns:
+            1fr;
+
+        gap: 15px;
+    }
+
+
+    .input-group.full-width {
+        grid-column:
+            auto;
+    }
+
+
+    .button-group {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        margin-top: 32px;
+    }
+
+
+    .predict-btn,
+    .reset-btn {
+        width: 100%;
+    }
+
+
+    .result-section h2 {
+        font-size: 25px;
+    }
+
+
+    .result-icon {
+        width: 62px;
+        height: 62px;
+
+        border-radius: 19px;
+
+        font-size: 28px;
+    }
+
+
+    .probability-box {
+        padding: 16px;
+    }
+
+
+    .model-info {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .explanation-box {
+        padding: 20px 16px;
+
+        margin-top: 24px;
+
+        border-radius: 15px;
+    }
+
+
+    .explanation-heading {
+        gap: 11px;
+
+        margin-bottom: 17px;
+    }
+
+
+    .explanation-icon {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 10px;
+
+        font-size: 18px;
+    }
+
+
+    .explanation-heading h3 {
+        font-size: 16px;
+    }
+
+
+    .explanation-heading p {
+        font-size: 12px;
+    }
+
+
+    .explanation-item {
+        min-height: 58px;
+
+        padding: 10px 11px;
+
+        gap: 10px;
+    }
+
+
+    .factor-icon {
+        width: 32px;
+        height: 32px;
+
+        border-radius: 9px;
+
+        font-size: 17px;
+    }
+
+
+    .factor-name {
+        font-size: 13px;
+    }
+
+
+    .factor-impact {
+        font-size: 11px;
+    }
+
+
+    footer {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 7px;
+
+        padding:
+            0 2px;
+    }
+
+
+    footer p:last-child {
+        text-align: left;
+    }
+
+}

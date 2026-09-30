@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Loan Analyzer | Loan Approval Prediction
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- ==========================================
+         ANIMATED BACKGROUND
+    =========================================== -->
+
+    <div class="background">
+
+        <div class="orb orb-1"></div>
+
+        <div class="orb orb-2"></div>
+
+        <div class="orb orb-3"></div>
+
+    </div>
+
+
+    <!-- ==========================================
+         MAIN CONTAINER
+    =========================================== -->
+
+    <main class="container">
+
+
+        <!-- ======================================
+             HEADER
+        ======================================= -->
+
+        <header class="header">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    L
+                </div>
+
+                <div>
+
+                    <h1>
+                        Loan Analyzer <span>AI</span>
+                    </h1>
+
+                    <p>
+                        Intelligent Loan Approval Prediction
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                AI Model Online
+
+            </div>
+
+        </header>
+
+
+        <!-- ======================================
+             MAIN CARD
+        ======================================= -->
+
+        <section class="loan-card">
+
+
+            <!-- ==================================
+                 FORM SECTION
+            =================================== -->
+
+            <div class="form-section">
+
+
+                <!-- Section Heading -->
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            APPLICANT PROFILE
+                        </span>
+
+                        <h2>
+                            Tell us about yourself
+                        </h2>
+
+                        <p>
+                            Enter your financial information to receive
+                            an AI-powered loan assessment.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================
+                     LOAN FORM
+                =================================== -->
+
+                <form id="loanForm">
+
+
+                    <!-- =================================
+                         PERSONAL INFORMATION
+                    ================================== -->
+
+                    <div class="form-group">
+
+                        <h3>
+                            Personal Information
+                        </h3>
+
+
+                        <div class="form-grid">
+
+
+                            <!-- Age -->
+
+                            <div class="input-group">
+
+                                <label for="person_age">
+                                    Age
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="person_age"
+                                    name="person_age"
+                                    min="20"
+                                    max="80"
+                                    placeholder="e.g. 25"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- Gender -->
+
+                            <div class="input-group">
+
+                                <label for="person_gender">
+                                    Gender
+                                </label>
+
+                                <select
+                                    id="person_gender"
+                                    name="person_gender"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select gender
+                                    </option>
+
+                                    <option value="male">
+                                        Male
+                                    </option>
+
+                                    <option value="female">
+                                        Female
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- Education -->
+
+                            <div class="input-group">
+
+                                <label for="person_education">
+                                    Education
+                                </label>
+
+                                <select
+                                    id="person_education"
+                                    name="person_education"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select education
+                                    </option>
+
+                                    <option value="High School">
+                                        High School
+                                    </option>
+
+                                    <option value="Associate">
+                                        Associate
+                                    </option>
+
+                                    <option value="Bachelor">
+                                        Bachelor
+                                    </option>
+
+                                    <option value="Master">
+                                        Master
+                                    </option>
+
+                                    <option value="Doctorate">
+                                        Doctorate
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- Employment Experience -->
+
+                            <div class="input-group">
+
+                                <label for="person_emp_exp">
+                                    Employment Experience
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="person_emp_exp"
+                                    name="person_emp_exp"
+                                    min="0"
+                                    max="60"
+                                    placeholder="Years"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================
+                         FINANCIAL INFORMATION
+                    ================================== -->
+
+                    <div class="form-group">
+
+                        <h3>
+                            Financial Information
+                        </h3>
+
+
+                        <div class="form-grid">
+
+
+                            <!-- Annual Income -->
+
+                            <div class="input-group">
+
+                                <label for="person_income">
+                                    Annual Income
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="person_income"
+                                    name="person_income"
+                                    min="0"
+                                    placeholder="₹ 60,000"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- Home Ownership -->
+
+                            <div class="input-group">
+
+                                <label for="person_home_ownership">
+                                    Home Ownership
+                                </label>
+
+                                <select
+                                    id="person_home_ownership"
+                                    name="person_home_ownership"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select ownership
+                                    </option>
+
+                                    <option value="RENT">
+                                        Rent
+                                    </option>
+
+                                    <option value="OWN">
+                                        Own
+                                    </option>
+
+                                    <option value="MORTGAGE">
+                                        Mortgage
+                                    </option>
+
+                                    <option value="OTHER">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- Loan Amount -->
+
+                            <div class="input-group">
+
+                                <label for="loan_amnt">
+                                    Loan Amount
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="loan_amnt"
+                                    name="loan_amnt"
+                                    min="0"
+                                    placeholder="₹ 10,000"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- Loan Purpose -->
+
+                            <div class="input-group">
+
+                                <label for="loan_intent">
+                                    Loan Purpose
+                                </label>
+
+                                <select
+                                    id="loan_intent"
+                                    name="loan_intent"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select purpose
+                                    </option>
+
+                                    <option value="PERSONAL">
+                                        Personal
+                                    </option>
+
+                                    <option value="EDUCATION">
+                                        Education
+                                    </option>
+
+                                    <option value="MEDICAL">
+                                        Medical
+                                    </option>
+
+                                    <option value="VENTURE">
+                                        Venture
+                                    </option>
+
+                                    <option value="HOMEIMPROVEMENT">
+                                        Home Improvement
+                                    </option>
+
+                                    <option value="DEBTCONSOLIDATION">
+                                        Debt Consolidation
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- Interest Rate -->
+
+                            <div class="input-group">
+
+                                <label for="loan_int_rate">
+                                    Interest Rate (%)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="loan_int_rate"
+                                    name="loan_int_rate"
+                                    step="0.01"
+                                    min="0"
+                                    placeholder="10.5"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- Loan Income Ratio -->
+
+                            <div class="input-group">
+
+                                <label for="loan_percent_income">
+                                    Loan / Income Ratio
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="loan_percent_income"
+                                    name="loan_percent_income"
+                                    step="0.01"
+                                    min="0"
+                                    max="1"
+                                    placeholder="0.17"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================
+                         CREDIT INFORMATION
+                    ================================== -->
+
+                    <div class="form-group">
+
+                        <h3>
+                            Credit Information
+                        </h3>
+
+
+                        <div class="form-grid">
+
+
+                            <!-- Credit History -->
+
+                            <div class="input-group">
+
+                                <label for="cb_person_cred_hist_length">
+                                    Credit History Length
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="cb_person_cred_hist_length"
+                                    name="cb_person_cred_hist_length"
+                                    min="0"
+                                    step="0.1"
+                                    placeholder="4 years"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- Credit Score -->
+
+                            <div class="input-group">
+
+                                <label for="credit_score">
+                                    Credit Score
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="credit_score"
+                                    name="credit_score"
+                                    min="300"
+                                    max="850"
+                                    placeholder="680"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- Previous Default -->
+
+                            <div class="input-group full-width">
+
+                                <label for="previous_loan_defaults_on_file">
+                                    Previous Loan Default
+                                </label>
+
+                                <select
+                                    id="previous_loan_defaults_on_file"
+                                    name="previous_loan_defaults_on_file"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select option
+                                    </option>
+
+                                    <option value="No">
+                                        No
+                                    </option>
+
+                                    <option value="Yes">
+                                        Yes
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================
+                         ACTION BUTTONS
+                    ================================== -->
+
+                    <div class="button-group">
+
+
+                        <!-- Analyze Button -->
+
+                        <button
+                            type="submit"
+                            class="predict-btn"
+                            id="predictBtn"
+                        >
+
+                            <span id="btnText">
+                                Analyze Loan Application
+                            </span>
+
+                            <span
+                                class="arrow"
+                                id="btnArrow"
+                            >
+                                →
+                            </span>
+
+                            <span
+                                class="btn-loader"
+                                id="btnLoader"
+                            ></span>
+
+                        </button>
+
+
+                        <!-- Reset Button -->
+
+                        <button
+                            type="button"
+                            class="reset-btn"
+                            id="resetBtn"
+                        >
+                            ↻ Reset
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- ======================================
+                 RESULT SECTION
+            ======================================= -->
+
+            <div
+                class="result-section hidden"
+                id="resultSection"
+            >
+
+                <div class="result-content">
+
+
+                    <!-- Result Icon -->
+
+                    <div
+                        class="result-icon"
+                        id="resultIcon"
+                    >
+                        ?
+                    </div>
+
+
+                    <!-- Result Label -->
+
+                    <span class="result-label">
+                        AI ASSESSMENT
+                    </span>
+
+
+                    <!-- Result Title -->
+
+                    <h2 id="resultTitle">
+                        Awaiting Application
+                    </h2>
+
+
+                    <!-- Result Message -->
+
+                    <p id="resultMessage">
+                        Complete the application form and let
+                        our machine learning model analyze your
+                        loan profile.
+                    </p>
+
+
+                    <!-- ==================================
+                         APPROVAL PROBABILITY
+                    =================================== -->
+
+                    <div class="probability-box">
+
+                        <div class="probability-header">
+
+                            <span>
+                                Approval Probability
+                            </span>
+
+                            <strong id="probability">
+                                0%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress-bar">
+
+                            <div
+                                class="progress-fill"
+                                id="progressFill"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         AI EXPLANATION
+                    =================================== -->
+
+                    <div
+                        class="explanation-box"
+                        id="explanationBox"
+                    >
+
+                        <div class="explanation-heading">
+
+                            <span class="explanation-icon">
+                                ✦
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Why this prediction?
+                                </h3>
+
+                                <p>
+                                    Key factors that influenced
+                                    the AI decision
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="explanation-list"
+                            id="explanationList"
+                        >
+
+                            <div class="explanation-loading">
+                                Complete the application to see
+                                AI prediction factors.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         MODEL INFORMATION
+                    =================================== -->
+
+                    <div class="model-info">
+
+
+                        <div>
+
+                            <span>
+                                MODEL
+                            </span>
+
+                            <strong>
+                                Random Forest
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                ACCURACY
+                            </span>
+
+                            <strong>
+                                92.58%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             FOOTER
+        ======================================= -->
+
+        <footer>
+
+            <p>
+                LoanGuard AI • Machine Learning Loan Assessment
+            </p>
+
+            <p>
+                Powered by Random Forest
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+
+</body>
+
+</html>
